@@ -1,0 +1,6 @@
+{
+    "plugins": ["babel-polyfill", ["transform-es2015-classes", {
+        "loose": true
+    }]],
+    "presets": ["env", "react"]
+}

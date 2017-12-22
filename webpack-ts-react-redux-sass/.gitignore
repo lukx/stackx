@@ -1,0 +1,12 @@
+dist/
+build/
+node_modules/
+.awcache/
+target/
+npm-debug.log
+.vscode/*
+**.orig
+yarn-error.log
+.idea/
+**.swp
+**.DS_Store
