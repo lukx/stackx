@@ -1,12 +1,12 @@
-import path from 'path';
+const path = require('path');
 
 // config imports
-import entryOutputConfig from './build/entryOutputConfig';
-import devToolsConfig from './build/devToolsConfig';
-import pluginConfig from './build/pluginConfig';
-import moduleConfig from './build/loaderConfig';
-import resolveConfig from './build/resolveConfig';
-import definedGlobalsConfig from './build/definedGlobalsConfig';
+const entryOutputConfig = require('./build/entryOutputConfig');
+const devToolsConfig = require('./build/devToolsConfig');
+const pluginConfig = require('./build/pluginConfig');
+const moduleConfig = require('./build/loaderConfig');
+const resolveConfig = require('./build/resolveConfig');
+const definedGlobalsConfig = require('./build/definedGlobalsConfig');
 
 const base = (env) => {
     let buildEnvConfig = Object.assign({
@@ -15,9 +15,8 @@ const base = (env) => {
             dist: path.resolve('./', 'dist', 'assets'),
             root: path.resolve('./')
         },
-        dev: false,
-        configset: 'production',
-        appContextRoot: '/'
+        dev: false, // dev will trigger logging verbosity, minification etc
+        configset: 'production' // configset defines values like api endpoints, titles, etc, resolves to a file in ./config/*.conf.js
     }, env);
 
     let webpackConfig = {};
@@ -32,4 +31,4 @@ const base = (env) => {
     return webpackConfig;
 };
 
-export default base;
+module.exports = base;

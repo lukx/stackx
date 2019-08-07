@@ -1,4 +1,9 @@
+@import '~sanitize.css';
+@import '~sanitize.css/forms.css';
+@import '~sanitize.css/typography.css';
+
+
 body {
-  background-color: #008f00;
-  color: #fff;
+  color: #000;
+  background-image: url('../images/frog.png');
 }

@@ -1,4 +1,2 @@
-export default {
-    "TRX_ENDPOINT": "http://default-endpoint",
-    "TRX_APPTITLE": "STACKX with types"
-}
+export const APP_ENDPOINT = "http://default-endpoint";
+export const APP_TITLE = "STACKX with types";

@@ -1,4 +1,3 @@
-export default {
-  "TRX_ENDPOINT": "http://prod-endpoint",
-  "TRX_CONFIGSET": "production"
-}
+export * from './default.conf';
+
+export const APP_ENDPOINT = "http://production-endpoint";

@@ -1,3 +1,5 @@
-const config = Object.assign({}, require('./default.conf.js'), require('./'+ (TRX_CONFIGSET || 'production') + '.conf.js'));
+// pseudo module, will be used by IDE for code completion, but
+// for the webpack build, the correct config set will be loaded directly.
+// so best not edit this file.
 
-export const TRX_ENDPOINT = config.TRX_ENDPOINT;
+export * from './default.conf';
