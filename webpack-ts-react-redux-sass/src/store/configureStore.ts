@@ -5,6 +5,7 @@ import {
     compose
 } from 'redux';
 import {createBrowserHistory} from 'history';
+import thunk from 'redux-thunk';
 
 import {IState, createRootReducer} from 'src/reducers';
 
@@ -21,6 +22,9 @@ export default function configureReduxStore(initialState: IState): Store<IState>
         composeEnhancers = compose;
     }
 
+    enhancer = composeEnhancers(
+        applyMiddleware(thunk)
+    );
 
     return <Store<IState>>createStore(createRootReducer(browserHistory), initialState, enhancer);
 }
