@@ -16,10 +16,12 @@ function addBasePlugins(plugins, buildEnvConfig) {
             to: path.resolve(buildEnvConfig.dir.dist, 'web.config')
         }
     ]));
+
     plugins.push(new TsCheckerWebpackPlugin({
         tsconfig: path.resolve(buildEnvConfig.dir.root, 'tsconfig.json'),
         eslint: true
     }));
+
     plugins.push(new HtmlWebpackPlugin({
         template: path.resolve(buildEnvConfig.dir.src, 'index.ejs'),
         minify: {
@@ -30,7 +32,7 @@ function addBasePlugins(plugins, buildEnvConfig) {
         inject: true
     }));
     plugins.push(new MiniCssExtractPlugin({
-        filename: '[name].[chunkhash].css',
+        filename: buildEnvConfig.dev ? '[name].css' : '[name].[chunkhash].css',
         chunkFilename: '[id].[hash].css',
     }));
 }
@@ -40,7 +42,6 @@ function addProdPlugins(plugins, buildEnvConfig) {
     plugins.push(new CleanWebpackPlugin(['dist'], {
         root: buildEnvConfig.dir.root
     }));
-
 }
 
 module.exports = function pluginConfig(previousWebpackConfig, buildEnvConfig) {

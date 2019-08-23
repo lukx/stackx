@@ -16,7 +16,7 @@ const base = (env) => {
             root: path.resolve('./')
         },
         dev: false, // dev will trigger logging verbosity, minification etc
-        configset: 'production' // configset defines values like api endpoints, titles, etc, resolves to a file in ./config/*.conf.js
+        configset: path.resolve('./', 'config', 'production.conf.js') // configset defines values like api endpoints, titles, etc, resolves to a file in ./config/*.conf.js
     }, env);
 
     let webpackConfig = {};

@@ -4,10 +4,10 @@ import configureStore, {browserHistory} from './store/configureStore';
 import {Provider} from 'react-redux';
 import AppFrame from './module/frame';
 import './scss/main.scss';
-import {IState} from 'src/reducers';
+import {State} from 'src/state/rootReducer';
 import {ConnectedRouter} from 'connected-react-router';
 
-const initialState = {} as IState;
+const initialState: State = {};
 
 const store = configureStore(initialState);
 

@@ -7,17 +7,17 @@ import {
 import {createBrowserHistory} from 'history';
 import thunk from 'redux-thunk';
 
-import {IState, createRootReducer} from 'src/reducers';
+import {State, createRootReducer} from 'src/state/rootReducer';
 
 export const browserHistory = createBrowserHistory();
 
-export default function configureReduxStore(initialState: IState): Store<IState> {
-    let enhancer: any;
+export default function configureReduxStore(initialState: State): Store<State> {
+    let enhancer;
 
     let composeEnhancers;
 
     if (process.env.NODE_ENV === 'development') {
-        composeEnhancers = (<any>window).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+        composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     } else {
         composeEnhancers = compose;
     }
@@ -26,5 +26,5 @@ export default function configureReduxStore(initialState: IState): Store<IState>
         applyMiddleware(thunk)
     );
 
-    return <Store<IState>>createStore(createRootReducer(browserHistory), initialState, enhancer);
+    return createStore(createRootReducer(browserHistory), initialState, enhancer) as Store<State>;
 }
